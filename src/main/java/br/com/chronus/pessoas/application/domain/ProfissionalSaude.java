@@ -34,4 +34,12 @@ public class ProfissionalSaude {
 
     private String crmProfissionalSaude;
 
+    public static ProfissionalSaude createProfissionalSaude(
+            final String nomeProfissionalSaude,
+            final String emailProfissionalSaude,
+            final EnumEspecialidadeProfissionalSaude especialidadeProfissionalSaude,
+            final String crmProfissionalSaude) {
+        return new ProfissionalSaude(null, nomeProfissionalSaude, emailProfissionalSaude, especialidadeProfissionalSaude, crmProfissionalSaude);
+    }
+
 }
