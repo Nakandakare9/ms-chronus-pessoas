@@ -34,7 +34,7 @@ public class ProfissionalSaudeController {
     @PutMapping("/{idProfissionalSaude}")
     public ResponseEntity<ProfissionalSaude> updateProfissionalSaude(@PathVariable UUID idProfissionalSaude, @Validated @RequestBody ProfissionalSaude profissionalSaude) {
         profissionalSaude.setIdProfissionalSaude(idProfissionalSaude);
-        ProfissionalSaude updatedProfissionalSaude = profissionalSaudeGateway.updateProfissionalSaude(idProfissionalSaude, profissionalSaude);
+        ProfissionalSaude updatedProfissionalSaude = profissionalSaudeGateway.updateProfissionalSaude(profissionalSaude);
         return new ResponseEntity<>(updatedProfissionalSaude, HttpStatus.OK);
     }
 

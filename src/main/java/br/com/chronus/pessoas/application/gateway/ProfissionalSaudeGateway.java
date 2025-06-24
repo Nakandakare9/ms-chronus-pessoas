@@ -9,7 +9,7 @@ public interface ProfissionalSaudeGateway {
 
     ProfissionalSaude createProfissionalSaude(final ProfissionalSaude profissionalSaude);
     Optional<ProfissionalSaude> getProfissionalSaudeById(final UUID idProfissionalSaude);
-    ProfissionalSaude updateProfissionalSaude(UUID idProfissionalSaude, ProfissionalSaude profissionalSaude);
+    ProfissionalSaude updateProfissionalSaude(final ProfissionalSaude profissionalSaude);
     boolean deleteProfissionalSaude(UUID idProfissionalSaude);
 
 }

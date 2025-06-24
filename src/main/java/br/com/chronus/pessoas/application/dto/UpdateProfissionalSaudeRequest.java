@@ -1,5 +1,6 @@
 package br.com.chronus.pessoas.application.dto;
 
+import br.com.chronus.pessoas.application.enums.EnumEspecialidadeProfissionalSaude;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
@@ -21,6 +22,6 @@ public class UpdateProfissionalSaudeRequest {
     @Email(message = "Email should be valid")
     private String emailProfissionalSaude;
 
-    private String especialidadeProfissionalSaude;
+    private EnumEspecialidadeProfissionalSaude especialidadeProfissionalSaude;
 
 }
