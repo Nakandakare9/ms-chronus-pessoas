@@ -13,7 +13,7 @@ public class ProfissionalSaudeExistenteException extends BusinessException {
     private static final String ERROR_CODE = "profissional.existente";
     private static final String ERROR_MESSAGE = "Profissional de Saúde [%s] já cadastrado com o ID [%s] informado.";
 
-    public ProfissionalSaudeExistenteException(final UUID idProfissionalSaude, final String nomeProfissionalSaude) {
+    public ProfissionalSaudeExistenteException(final Integer idProfissionalSaude, final String nomeProfissionalSaude) {
         super(format(ERROR_MESSAGE, idProfissionalSaude, nomeProfissionalSaude), ERROR_CODE);
     }
 }

@@ -25,21 +25,28 @@ public class ContatoAnjoController {
     }
 
     @GetMapping("/{idContatoAnjo}")
-    public ResponseEntity<ContatoAnjo> getContatoAnjoById(@PathVariable UUID idContatoAnjo) {
+    public ResponseEntity<ContatoAnjo> getContatoAnjoById(@PathVariable Integer idContatoAnjo) {
         Optional<ContatoAnjo> contatoAnjo = contatoAnjoGateway.getContatoAnjoById(idContatoAnjo);
         return contatoAnjo.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
+    @GetMapping("/{nomeContatoAnjo}")
+    public ResponseEntity<ContatoAnjo> getContatoAnjoByNome(@PathVariable String nomeContatoAnjo) {
+        Optional<ContatoAnjo> contatoAnjo = contatoAnjoGateway.getContatoAnjoByNome(nomeContatoAnjo);
+        return contatoAnjo.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
+                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
     @PutMapping("/{idContatoAnjo}")
-    public ResponseEntity<ContatoAnjo> updateContatoAnjo(@PathVariable UUID idContatoAnjo, @Validated @RequestBody ContatoAnjo contatoAnjo) {
+    public ResponseEntity<ContatoAnjo> updateContatoAnjo(@PathVariable Integer idContatoAnjo, @Validated @RequestBody ContatoAnjo contatoAnjo) {
         contatoAnjo.setIdContatoAnjo(idContatoAnjo);
         ContatoAnjo updatedContatoAnjo = contatoAnjoGateway.updateContatoAnjo(contatoAnjo);
         return new ResponseEntity<>(updatedContatoAnjo, HttpStatus.OK);
     }
 
     @DeleteMapping("/{idContatoAnjo}")
-    public ResponseEntity<Void> deleteContatoAnjo(@PathVariable UUID idContatoAnjo) {
+    public ResponseEntity<Void> deleteContatoAnjo(@PathVariable Integer idContatoAnjo) {
         boolean deleted = contatoAnjoGateway.deleteContatoAnjo(idContatoAnjo);
         if (deleted) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -49,7 +56,7 @@ public class ContatoAnjoController {
     }
 
     @GetMapping("/{idPaciente}")
-    public ResponseEntity<ContatoAnjo> getContatoAnjoByPacienteId(@PathVariable UUID idPaciente) {
+    public ResponseEntity<ContatoAnjo> getContatoAnjoByPacienteId(@PathVariable Integer idPaciente) {
         Optional<ContatoAnjo> contatoAnjo = contatoAnjoGateway.getContatoAnjoByPacienteId(idPaciente);
         return contatoAnjo.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));

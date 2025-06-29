@@ -15,7 +15,7 @@ public class UpdatePaciente {
 
     private final PacienteGateway pacienteGateway;
 
-    public Paciente execute(final UUID idPaciente, final UpdatePacienteRequest updatePacienteRequest) {
+    public Paciente execute(final Integer idPaciente, final UpdatePacienteRequest updatePacienteRequest) {
          final var pacienteEncontrado = pacienteGateway.getPacienteById(idPaciente)
                 .orElseThrow(() -> new PacienteNaoEncontradoException(idPaciente));
 
@@ -23,7 +23,7 @@ public class UpdatePaciente {
          pacienteEncontrado.setEmailPaciente(updatePacienteRequest.getEmailPaciente());
          pacienteEncontrado.setTelefonePaciente(updatePacienteRequest.getTelefonePaciente());
          pacienteEncontrado.setEnderecoPaciente(updatePacienteRequest.getEnderecoPaciente());
-         pacienteEncontrado.setIdContatoAnjo(updatePacienteRequest.getIdContatoAnjo());
+         pacienteEncontrado.setContatoAnjoList(updatePacienteRequest.getContatoAnjoList());
 
          return pacienteGateway.updatePaciente(pacienteEncontrado);
 

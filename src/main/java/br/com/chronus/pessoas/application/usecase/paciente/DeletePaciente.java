@@ -13,7 +13,7 @@ public class DeletePaciente {
 
     private final PacienteGateway pacienteGateway;
 
-    public void execute(final UUID idPaciente) {
+    public void execute(final Integer idPaciente) {
         final var paciente = pacienteGateway.getPacienteById(idPaciente)
                 .orElseThrow(() -> new PacienteNaoEncontradoException(idPaciente));
 

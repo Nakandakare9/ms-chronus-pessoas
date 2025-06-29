@@ -8,8 +8,9 @@ import java.util.UUID;
 public interface PacienteGateway {
 
     Paciente createPaciente(final Paciente paciente);
-    Optional<Paciente> getPacienteById(final UUID idPaciente);
+    Optional<Paciente> getPacienteById(final int idPaciente);
+    Optional<Paciente> getPacienteByNome(final String nomePaciente);
     Paciente updatePaciente(final Paciente paciente);
-    boolean deletePaciente(UUID idPaciente);
+    void deletePaciente(final int idPaciente);
 
 }

@@ -1,18 +1,10 @@
 package br.com.chronus.pessoas.infrastructure.persistence.entity;
 
+import br.com.chronus.pessoas.application.enums.EnumEspecialidadeProfissionalSaude;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.Builder;
-import jakarta.persistence.Column;
-import java.util.UUID;
-import jakarta.persistence.Id;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+import jakarta.persistence.*;
+import lombok.*;
+import java.util.List;
 
 @Entity
 @Table(name = "profissional_saude")
@@ -27,7 +19,7 @@ public class ProfissionalSaudeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true)
-    private UUID idProfissionalSaude;
+    private Integer idProfissionalSaude;
 
     @Column(name = "nome_profissional_saude", length = 100, nullable = false)
     private String nomeProfissionalSaude;
@@ -35,9 +27,13 @@ public class ProfissionalSaudeEntity {
     @Column(name = "email_profissional_saude", length = 100)
     private String emailProfissionalSaude;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "especialidade_profissional_saude")
-    private String especialidadeProfissionalSaude;
+    private EnumEspecialidadeProfissionalSaude especialidadeProfissionalSaude;
 
     @Column(name = "crm_profissional_saude")
     private String crmProfissionalSaude;
+
+    @ManyToMany(mappedBy = "profissionalSaudeList")
+    private List<PacienteEntity> pacienteList;
 }

@@ -1,5 +1,6 @@
 package br.com.chronus.pessoas.application.dto;
 
+import br.com.chronus.pessoas.application.domain.Paciente;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
@@ -30,6 +31,6 @@ public class UpdateContatoAnjoRequest {
     @Size(max = 255, message = "Observation length must be less than 255 characters")
     private String observacaoContatoAnjo;
 
-    private List<UUID> idPaciente;
+    private List<Paciente> pacienteList;
 
 }

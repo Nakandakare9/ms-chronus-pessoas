@@ -27,7 +27,7 @@ public class CreateContatoAnjo {
                 requestContatoAnjo.getTelefoneContatoAnjo(),
                 requestContatoAnjo.getParentescoContatoAnjo(),
                 requestContatoAnjo.getObservacaoContatoAnjo(),
-                requestContatoAnjo.getIdPaciente()
+                requestContatoAnjo.getPacienteList()
         );
 
         return contatoAnjoGateway.createContatoAnjo(buildDomain);

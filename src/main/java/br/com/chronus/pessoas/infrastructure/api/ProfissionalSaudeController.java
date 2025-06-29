@@ -25,21 +25,28 @@ public class ProfissionalSaudeController {
     }
 
     @GetMapping("/{idProfissionalSaude}")
-    public ResponseEntity<ProfissionalSaude> getProfissionalSaudeById(@PathVariable UUID idProfissionalSaude) {
+    public ResponseEntity<ProfissionalSaude> getProfissionalSaudeById(@PathVariable Integer idProfissionalSaude) {
         Optional<ProfissionalSaude> profissionalSaude = profissionalSaudeGateway.getProfissionalSaudeById(idProfissionalSaude);
         return profissionalSaude.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
+    @GetMapping("/{nomeProfissionalSaude}")
+    public ResponseEntity<ProfissionalSaude> getProfissionalSaudeById(@PathVariable String nomeProfissionalSaude) {
+        Optional<ProfissionalSaude> profissionalSaude = profissionalSaudeGateway.getProfissionalSaudeByNome(nomeProfissionalSaude);
+        return profissionalSaude.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
+                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
     @PutMapping("/{idProfissionalSaude}")
-    public ResponseEntity<ProfissionalSaude> updateProfissionalSaude(@PathVariable UUID idProfissionalSaude, @Validated @RequestBody ProfissionalSaude profissionalSaude) {
+    public ResponseEntity<ProfissionalSaude> updateProfissionalSaude(@PathVariable Integer idProfissionalSaude, @Validated @RequestBody ProfissionalSaude profissionalSaude) {
         profissionalSaude.setIdProfissionalSaude(idProfissionalSaude);
         ProfissionalSaude updatedProfissionalSaude = profissionalSaudeGateway.updateProfissionalSaude(profissionalSaude);
         return new ResponseEntity<>(updatedProfissionalSaude, HttpStatus.OK);
     }
 
     @DeleteMapping("/{idProfissionalSaude}")
-    public ResponseEntity<Void> deleteProfissionalSaude(@PathVariable UUID idProfissionalSaude) {
+    public ResponseEntity<Void> deleteProfissionalSaude(@PathVariable Integer idProfissionalSaude) {
         boolean deleted = profissionalSaudeGateway.deleteProfissionalSaude(idProfissionalSaude);
         if (deleted) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);

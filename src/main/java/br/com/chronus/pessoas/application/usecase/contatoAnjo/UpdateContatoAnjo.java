@@ -15,7 +15,7 @@ public class UpdateContatoAnjo {
 
     private final ContatoAnjoGateway contatoAnjoGateway;
 
-    public ContatoAnjo execute(final UUID idContatoAnjo, final UpdateContatoAnjoRequest updateContatoAnjoRequest) {
+    public ContatoAnjo execute(final Integer idContatoAnjo, final UpdateContatoAnjoRequest updateContatoAnjoRequest) {
         final var contatoAnjoEncontrado = contatoAnjoGateway.getContatoAnjoByPacienteId(idContatoAnjo)
                 .orElseThrow(() -> new ContatoAnjoNaoEncontradoException(idContatoAnjo));
 
@@ -23,7 +23,7 @@ public class UpdateContatoAnjo {
         contatoAnjoEncontrado.setEmailContatoAnjo(updateContatoAnjoRequest.getEmailContatoAnjo());
         contatoAnjoEncontrado.setTelefoneContatoAnjo(updateContatoAnjoRequest.getTelefoneContatoAnjo());
         contatoAnjoEncontrado.setObservacaoContatoAnjo(updateContatoAnjoRequest.getObservacaoContatoAnjo());
-        contatoAnjoEncontrado.setIdPaciente(updateContatoAnjoRequest.getIdPaciente());
+        contatoAnjoEncontrado.setPacienteList(updateContatoAnjoRequest.getPacienteList());
 
         return contatoAnjoGateway.updateContatoAnjo(contatoAnjoEncontrado);
 

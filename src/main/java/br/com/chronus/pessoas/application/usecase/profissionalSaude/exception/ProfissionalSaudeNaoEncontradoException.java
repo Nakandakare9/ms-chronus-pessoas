@@ -11,7 +11,7 @@ public class ProfissionalSaudeNaoEncontradoException extends BusinessException {
     private static final String ERROR_CODE = "profissional.nao.encontrado";
     private static final String ERROR_MESSAGE = "Profissional de Saúde com id [%s] não encontrado.";
 
-    public ProfissionalSaudeNaoEncontradoException(final UUID idProfissionalSaude) {
+    public ProfissionalSaudeNaoEncontradoException(final Integer idProfissionalSaude) {
         super(format(ERROR_MESSAGE, idProfissionalSaude), ERROR_CODE);
     }
 

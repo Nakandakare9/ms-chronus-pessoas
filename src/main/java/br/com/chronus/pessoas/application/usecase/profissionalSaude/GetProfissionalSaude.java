@@ -14,7 +14,7 @@ public class GetProfissionalSaude {
 
     private final ProfissionalSaudeGateway profissionalSaudeGateway;
 
-    public ProfissionalSaude execute(final UUID idProfissionalSaude) {
+    public ProfissionalSaude execute(final Integer idProfissionalSaude) {
         return profissionalSaudeGateway.getProfissionalSaudeById(idProfissionalSaude)
                 .orElseThrow(() -> new ProfissionalSaudeNaoEncontradoException(idProfissionalSaude));
     }

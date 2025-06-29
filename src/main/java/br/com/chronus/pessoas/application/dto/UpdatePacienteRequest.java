@@ -1,5 +1,6 @@
 package br.com.chronus.pessoas.application.dto;
 
+import br.com.chronus.pessoas.application.domain.ContatoAnjo;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
@@ -29,5 +30,7 @@ public class UpdatePacienteRequest {
 
     private String enderecoPaciente;
 
-    private List<UUID> idContatoAnjo;
+    private List<ContatoAnjo> contatoAnjoList;
+
+
 }

@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.Builder;
 
+import java.util.List;
 import java.util.UUID;
 
 @Getter
@@ -20,7 +21,7 @@ import java.util.UUID;
 @Builder
 public class ProfissionalSaude {
 
-    private UUID idProfissionalSaude;
+    private Integer idProfissionalSaude;
 
     @Size(max = 100, message = "Name length must be less than 100 characters")
     @Pattern(regexp = "[a-zA-Z\\s]+", message = "Name must contain only letters and spaces")
@@ -34,12 +35,15 @@ public class ProfissionalSaude {
 
     private String crmProfissionalSaude;
 
+    private List<Paciente> pacienteList;
+
     public static ProfissionalSaude createProfissionalSaude(
             final String nomeProfissionalSaude,
             final String emailProfissionalSaude,
             final EnumEspecialidadeProfissionalSaude especialidadeProfissionalSaude,
-            final String crmProfissionalSaude) {
-        return new ProfissionalSaude(null, nomeProfissionalSaude, emailProfissionalSaude, especialidadeProfissionalSaude, crmProfissionalSaude);
+            final String crmProfissionalSaude,
+            final List<Paciente> pacienteList) {
+        return new ProfissionalSaude(null, nomeProfissionalSaude, emailProfissionalSaude, especialidadeProfissionalSaude, crmProfissionalSaude, pacienteList);
     }
 
 }

@@ -1,14 +1,10 @@
 package br.com.chronus.pessoas.infrastructure.persistence.entity;
 
+import br.com.chronus.pessoas.application.enums.EnumParentesco;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.Builder;
+import lombok.*;
 import java.util.List;
-import java.util.UUID;
 
 @Entity
 @Table(name = "contato_anjo")
@@ -23,7 +19,7 @@ public class ContatoAnjoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true)
-    private UUID idContatoAnjo;
+    private Integer idContatoAnjo;
 
     @Column(name = "nome_contato_anjo", length = 100, nullable = false)
     private String nomeContatoAnjo;
@@ -37,8 +33,9 @@ public class ContatoAnjoEntity {
     @Column(name = "telefone_contato_anjo", length = 15)
     private String telefoneContatoAnjo;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "parentesco_contato_anjo")
-    private String parentescoContatoAnjo;
+    private EnumParentesco parentescoContatoAnjo;
 
     @Column(name = "observacao_contato_anjo", length = 255)
     private String observacaoContatoAnjo;
@@ -49,5 +46,5 @@ public class ContatoAnjoEntity {
             joinColumns = @JoinColumn(name = "id_contato_anjo"),
             inverseJoinColumns = @JoinColumn(name = "id_paciente")
     )
-    private List<PacienteEntity> pacientes;
+    private List<PacienteEntity> pacienteList;
 }

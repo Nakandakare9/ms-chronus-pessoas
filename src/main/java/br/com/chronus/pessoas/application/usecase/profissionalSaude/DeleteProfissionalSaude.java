@@ -13,7 +13,7 @@ public class DeleteProfissionalSaude {
 
     private final ProfissionalSaudeGateway profissionalSaudeGateway;
 
-    public void execute(final UUID idProfissionalSaude) {
+    public void execute(final Integer idProfissionalSaude) {
         final var profissionalSaude = profissionalSaudeGateway.getProfissionalSaudeById(idProfissionalSaude)
                 .orElseThrow(() -> new ProfissionalSaudeNaoEncontradoException(idProfissionalSaude));
 

@@ -14,7 +14,7 @@ public class GetContatoAnjo {
 
     private final ContatoAnjoGateway contatoAnjoGateway;
 
-    public ContatoAnjo execute(final UUID idContatoAnjo) {
+    public ContatoAnjo execute(final Integer idContatoAnjo) {
         return contatoAnjoGateway.getContatoAnjoById(idContatoAnjo)
                 .orElseThrow(() -> new ContatoAnjoNaoEncontradoException(idContatoAnjo));
     }

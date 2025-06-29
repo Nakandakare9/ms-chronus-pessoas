@@ -25,7 +25,8 @@ public class CreateProfissionalSaude {
                         requestProfissionalSaude.getNomeProfissionalSaude(),
                         requestProfissionalSaude.getEmailProfissionalSaude(),
                         requestProfissionalSaude.getEspecialidadeProfissionalSaude(),
-                        requestProfissionalSaude.getCrmProfissionalSaude());
+                        requestProfissionalSaude.getCrmProfissionalSaude(),
+                        requestProfissionalSaude.getPacienteList());
 
         return profissionalSaudeGateway.createProfissionalSaude(buildDomain);
     }

@@ -15,7 +15,7 @@ public class UpdateProfissionalSaude {
 
     private final ProfissionalSaudeGateway profissionalSaudeGateway;
 
-    public ProfissionalSaude execute(final UUID idProfissionalSaude, final UpdateProfissionalSaudeRequest updateProfissionalSaudeRequest) {
+    public ProfissionalSaude execute(final Integer idProfissionalSaude, final UpdateProfissionalSaudeRequest updateProfissionalSaudeRequest) {
         final var profissionalSaudeEncontrado = profissionalSaudeGateway.getProfissionalSaudeById(idProfissionalSaude)
                 .orElseThrow(() -> new ProfissionalSaudeNaoEncontradoException(idProfissionalSaude));
 

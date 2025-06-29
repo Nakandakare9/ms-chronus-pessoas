@@ -13,7 +13,7 @@ public class DeleteContatoAnjo {
 
     private final ContatoAnjoGateway contatoAnjoGateway;
 
-    public void execute(final UUID idContatoAnjo) {
+    public void execute(final Integer idContatoAnjo) {
         final var contatoAnjo = contatoAnjoGateway.getContatoAnjoById(idContatoAnjo)
                 .orElseThrow(() -> new ContatoAnjoNaoEncontradoException(idContatoAnjo));
 

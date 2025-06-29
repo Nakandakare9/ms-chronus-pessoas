@@ -25,27 +25,30 @@ public class PacienteController {
     }
 
     @GetMapping("/{idPaciente}")
-    public ResponseEntity<Paciente> getPacienteById(@PathVariable UUID idPaciente) {
+    public ResponseEntity<Paciente> getPacienteById(@PathVariable Integer idPaciente) {
         Optional<Paciente> paciente = pacienteGateway.getPacienteById(idPaciente);
         return paciente.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
+    @GetMapping("/{nomePaciente}")
+    public ResponseEntity<Paciente> getPacienteByNome(@PathVariable String nomePaciente) {
+        Optional<Paciente> paciente = pacienteGateway.getPacienteByNome(nomePaciente);
+        return paciente.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
+                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
     @PutMapping("/{idPaciente}")
-    public ResponseEntity<Paciente> updatePaciente(@PathVariable UUID idPaciente, @Validated @RequestBody Paciente paciente) {
+    public ResponseEntity<Paciente> updatePaciente(@PathVariable Integer idPaciente, @Validated @RequestBody Paciente paciente) {
         paciente.setIdPaciente(idPaciente);
         Paciente updatedPaciente = pacienteGateway.updatePaciente(paciente);
         return new ResponseEntity<>(updatedPaciente, HttpStatus.OK);
     }
 
     @DeleteMapping("/{idPaciente}")
-    public ResponseEntity<Void> deletePessoa(@PathVariable UUID idPaciente) {
-        boolean deleted = pacienteGateway.deletePaciente(idPaciente);
-        if (deleted) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+    public ResponseEntity<Void> deletePaciente(@PathVariable int idPaciente) {
+        pacienteGateway.deletePaciente(idPaciente);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
 }

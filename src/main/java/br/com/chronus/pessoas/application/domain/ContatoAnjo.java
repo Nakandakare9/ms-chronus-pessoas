@@ -17,7 +17,7 @@ import java.util.UUID;
 @Builder
 public class ContatoAnjo {
 
-    private UUID idContatoAnjo;
+    private Integer idContatoAnjo;
 
     @Size(max = 100, message = "Name length must be less than 100 characters")
     @Pattern(regexp = "[a-zA-Z\\s]+", message = "Name must contain only letters and spaces")
@@ -38,7 +38,7 @@ public class ContatoAnjo {
     @Size(max = 255, message = "Observation length must be less than 255 characters")
     private String observacaoContatoAnjo;
 
-    private List<UUID> idPaciente;
+    private List<Paciente> pacienteList;
 
     public static ContatoAnjo createContatoAnjo(
             final String nomeContatoAnjo,
@@ -47,8 +47,8 @@ public class ContatoAnjo {
             final String telefoneContatoAnjo,
             final EnumParentesco parentescoContatoAnjo,
             final String observacaoContatoAnjo,
-            final List<UUID> idPaciente) {
-        return new ContatoAnjo(null, nomeContatoAnjo, emailContatoAnjo, cpfContatoAnjo, telefoneContatoAnjo, parentescoContatoAnjo, observacaoContatoAnjo, idPaciente);
+            final List<Paciente> pacienteList) {
+        return new ContatoAnjo(null, nomeContatoAnjo, emailContatoAnjo, cpfContatoAnjo, telefoneContatoAnjo, parentescoContatoAnjo, observacaoContatoAnjo, pacienteList);
     }
 
 }

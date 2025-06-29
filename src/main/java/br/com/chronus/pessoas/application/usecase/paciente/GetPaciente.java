@@ -14,7 +14,7 @@ public class GetPaciente {
 
     private final PacienteGateway pacienteGateway;
 
-    public Paciente execute(final UUID idPaciente) {
+    public Paciente execute(final Integer idPaciente) {
         return pacienteGateway.getPacienteById(idPaciente)
                 .orElseThrow(() -> new PacienteNaoEncontradoException(idPaciente));
     }

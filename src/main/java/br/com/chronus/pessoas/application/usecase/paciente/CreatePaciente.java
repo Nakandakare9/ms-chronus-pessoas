@@ -28,7 +28,8 @@ public class CreatePaciente {
                        requestPaciente.getTelefonePaciente(),
                        requestPaciente.getDtNascPaciente(),
                        requestPaciente.getEnderecoPaciente(),
-                       requestPaciente.getIdContatoAnjo());
+                       requestPaciente.getContatoAnjoList(),
+                       requestPaciente.getProfissionalSaudeList());
 
         return pacienteGateway.createPaciente(buildDomain);
     }

@@ -14,7 +14,7 @@ public class ContatoAnjoNaoEncontradoException extends BusinessException {
     private static final String ERROR_CODE = "contatoAnjoNaoEncontrado";
     private static final String ERROR_MESSAGE = "Contato Anjo com id [%s] não encontrado.";
 
-    public ContatoAnjoNaoEncontradoException(final UUID idContatoAnjo) {
+    public ContatoAnjoNaoEncontradoException(final Integer idContatoAnjo) {
         super(format(ERROR_MESSAGE, idContatoAnjo), ERROR_CODE);
     }
 }
