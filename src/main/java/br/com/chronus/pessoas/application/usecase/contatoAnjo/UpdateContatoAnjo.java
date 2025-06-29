@@ -7,8 +7,6 @@ import br.com.chronus.pessoas.application.usecase.contatoAnjo.exception.ContatoA
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
-import java.util.UUID;
-
 @Component
 @RequiredArgsConstructor
 public class UpdateContatoAnjo {
@@ -16,7 +14,7 @@ public class UpdateContatoAnjo {
     private final ContatoAnjoGateway contatoAnjoGateway;
 
     public ContatoAnjo execute(final Integer idContatoAnjo, final UpdateContatoAnjoRequest updateContatoAnjoRequest) {
-        final var contatoAnjoEncontrado = contatoAnjoGateway.getContatoAnjoByPacienteId(idContatoAnjo)
+        final var contatoAnjoEncontrado = contatoAnjoGateway.getContatoAnjoById(idContatoAnjo)
                 .orElseThrow(() -> new ContatoAnjoNaoEncontradoException(idContatoAnjo));
 
         contatoAnjoEncontrado.setNomeContatoAnjo(updateContatoAnjoRequest.getNomeContatoAnjo());
@@ -26,6 +24,5 @@ public class UpdateContatoAnjo {
         contatoAnjoEncontrado.setPacienteList(updateContatoAnjoRequest.getPacienteList());
 
         return contatoAnjoGateway.updateContatoAnjo(contatoAnjoEncontrado);
-
     }
 }

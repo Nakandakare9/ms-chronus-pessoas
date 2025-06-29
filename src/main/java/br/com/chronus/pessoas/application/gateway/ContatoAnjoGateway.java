@@ -13,7 +13,7 @@ public interface ContatoAnjoGateway {
     Optional<ContatoAnjo> getContatoAnjoByNome(final String nomeContatoAnjo);
     ContatoAnjo updateContatoAnjo(final ContatoAnjo contatoAnjo);
     void deleteContatoAnjo(final int idContatoAnjo);
-    Optional<ContatoAnjo> getContatoAnjoByPacienteId(final int idPaciente);
+    List<ContatoAnjo> getContatoAnjoByPacienteId(final int idPaciente);
     List<ContatoAnjo> findAllContatoAnjo();
 
 }

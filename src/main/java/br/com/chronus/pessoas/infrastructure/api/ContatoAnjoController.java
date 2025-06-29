@@ -52,10 +52,12 @@ public class ContatoAnjoController {
     }
 
     @GetMapping("/paciente/{idPaciente}")
-    public ResponseEntity<ContatoAnjo> getContatoAnjoByPacienteId(@PathVariable int idPaciente) {
-        Optional<ContatoAnjo> contatoAnjo = contatoAnjoGateway.getContatoAnjoByPacienteId(idPaciente);
-        return contatoAnjo.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
-                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    public ResponseEntity<List<ContatoAnjo>> getContatoAnjoByPacienteId(@PathVariable int idPaciente) {
+        List<ContatoAnjo> contatoAnjos = contatoAnjoGateway.getContatoAnjoByPacienteId(idPaciente);
+        if (contatoAnjos == null || contatoAnjos.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(contatoAnjos, HttpStatus.OK);
     }
 
     @GetMapping("/findAll")
