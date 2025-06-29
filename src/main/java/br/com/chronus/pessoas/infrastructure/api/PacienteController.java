@@ -31,7 +31,7 @@ public class PacienteController {
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @GetMapping("/{nomePaciente}")
+    @GetMapping("/nome/{nomePaciente}")
     public ResponseEntity<Paciente> getPacienteByNome(@PathVariable String nomePaciente) {
         Optional<Paciente> paciente = pacienteGateway.getPacienteByNome(nomePaciente);
         return paciente.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
