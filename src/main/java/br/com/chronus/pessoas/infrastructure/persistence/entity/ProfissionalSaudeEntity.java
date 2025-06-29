@@ -31,7 +31,7 @@ public class ProfissionalSaudeEntity {
     @Column(name = "especialidade_profissional_saude")
     private EnumEspecialidadeProfissionalSaude especialidadeProfissionalSaude;
 
-    @Column(name = "crm_profissional_saude")
+    @Column(name = "crm_profissional_saude", nullable = false, unique = true, length = 6)
     private String crmProfissionalSaude;
 
     @ManyToMany(mappedBy = "profissionalSaudeList")
