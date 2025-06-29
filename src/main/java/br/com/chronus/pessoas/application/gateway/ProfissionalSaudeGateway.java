@@ -10,6 +10,6 @@ public interface ProfissionalSaudeGateway {
     Optional<ProfissionalSaude> getProfissionalSaudeById(final int idProfissionalSaude);
     Optional<ProfissionalSaude> getProfissionalSaudeByNome(final String nomeProfissionalSaude);
     ProfissionalSaude updateProfissionalSaude(final ProfissionalSaude profissionalSaude);
-    boolean deleteProfissionalSaude(final int idProfissionalSaude);
+    void deleteProfissionalSaude(final int idProfissionalSaude);
 
 }

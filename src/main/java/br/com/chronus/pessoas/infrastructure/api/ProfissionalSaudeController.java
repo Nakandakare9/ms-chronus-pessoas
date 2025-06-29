@@ -46,12 +46,11 @@ public class ProfissionalSaudeController {
     }
 
     @DeleteMapping("/{idProfissionalSaude}")
-    public ResponseEntity<Void> deleteProfissionalSaude(@PathVariable Integer idProfissionalSaude) {
-        boolean deleted = profissionalSaudeGateway.deleteProfissionalSaude(idProfissionalSaude);
-        if (deleted) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    public ResponseEntity<Void> deleteProfissionalSaude(@PathVariable int idProfissionalSaude) {
+        profissionalSaudeGateway.deleteProfissionalSaude(idProfissionalSaude);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-    }
+
 }
+
+

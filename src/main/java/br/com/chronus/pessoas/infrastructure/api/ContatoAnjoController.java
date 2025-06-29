@@ -8,8 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("chronus/contatos-anjo")
@@ -24,14 +24,14 @@ public class ContatoAnjoController {
         return new ResponseEntity<>(createdContatoAnjo, HttpStatus.CREATED);
     }
 
-    @GetMapping("/{idContatoAnjo}")
+    @GetMapping("/id/{idContatoAnjo}")
     public ResponseEntity<ContatoAnjo> getContatoAnjoById(@PathVariable Integer idContatoAnjo) {
         Optional<ContatoAnjo> contatoAnjo = contatoAnjoGateway.getContatoAnjoById(idContatoAnjo);
         return contatoAnjo.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @GetMapping("/{nomeContatoAnjo}")
+    @GetMapping("/nome/{nomeContatoAnjo}")
     public ResponseEntity<ContatoAnjo> getContatoAnjoByNome(@PathVariable String nomeContatoAnjo) {
         Optional<ContatoAnjo> contatoAnjo = contatoAnjoGateway.getContatoAnjoByNome(nomeContatoAnjo);
         return contatoAnjo.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
@@ -46,26 +46,24 @@ public class ContatoAnjoController {
     }
 
     @DeleteMapping("/{idContatoAnjo}")
-    public ResponseEntity<Void> deleteContatoAnjo(@PathVariable Integer idContatoAnjo) {
-        boolean deleted = contatoAnjoGateway.deleteContatoAnjo(idContatoAnjo);
-        if (deleted) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+    public ResponseEntity<Void> deleteContatoAnjo(@PathVariable int idContatoAnjo) {
+        contatoAnjoGateway.deleteContatoAnjo(idContatoAnjo);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @GetMapping("/{idPaciente}")
-    public ResponseEntity<ContatoAnjo> getContatoAnjoByPacienteId(@PathVariable Integer idPaciente) {
+    @GetMapping("/paciente/{idPaciente}")
+    public ResponseEntity<ContatoAnjo> getContatoAnjoByPacienteId(@PathVariable int idPaciente) {
         Optional<ContatoAnjo> contatoAnjo = contatoAnjoGateway.getContatoAnjoByPacienteId(idPaciente);
         return contatoAnjo.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     @GetMapping("/findAll")
-    public ResponseEntity<ContatoAnjo> findAllContatoAnjo() {
-        Optional<ContatoAnjo> contatoAnjo = contatoAnjoGateway.findAllContatoAnjo();
-        return contatoAnjo.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
-                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    public ResponseEntity<List<ContatoAnjo>> findAllContatoAnjo() {
+        List<ContatoAnjo> contatoAnjos = contatoAnjoGateway.findAllContatoAnjo();
+        if (contatoAnjos == null || contatoAnjos.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(contatoAnjos, HttpStatus.OK);
     }
 }
