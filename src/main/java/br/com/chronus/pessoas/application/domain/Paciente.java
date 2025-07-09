@@ -50,7 +50,7 @@ public class Paciente {
             final String enderecoPaciente,
             final List<ContatoAnjo> contatoAnjoList,
             final List<ProfissionalSaude> profissionalSaudeList) {
-                return new Paciente(null, nomePaciente, emailPaciente, cpfPaciente, telefonePaciente, dtNascPaciente, enderecoPaciente, contatoAnjoList, profissionalSaudeList);
+    return new Paciente(null, nomePaciente, emailPaciente, cpfPaciente, telefonePaciente, dtNascPaciente, enderecoPaciente, contatoAnjoList, profissionalSaudeList);
     }
 
 }
