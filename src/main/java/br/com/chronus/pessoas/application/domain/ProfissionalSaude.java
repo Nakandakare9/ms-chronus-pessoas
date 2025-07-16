@@ -5,14 +5,9 @@ import br.com.chronus.pessoas.application.enums.EnumEspecialidadeProfissionalSau
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.Builder;
+import lombok.*;
 
 import java.util.List;
-import java.util.UUID;
 
 @Getter
 @Setter
@@ -24,7 +19,7 @@ public class ProfissionalSaude {
     private Integer idProfissionalSaude;
 
     @Size(max = 100, message = "Name length must be less than 100 characters")
-    @Pattern(regexp = "[a-zA-Z\\s]+", message = "Name must contain only letters and spaces")
+    @Pattern(regexp = "^[\\p{L} .'-]+$", message = "Name must contain only letters, spaces, dots, apostrophes or hyphens")
     private String nomeProfissionalSaude;
 
     @Size(max = 100, message = "Email length must be less than 100 characters")

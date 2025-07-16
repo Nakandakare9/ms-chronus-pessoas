@@ -3,7 +3,6 @@ package br.com.chronus.pessoas.application.gateway;
 import br.com.chronus.pessoas.application.domain.Paciente;
 
 import java.util.Optional;
-import java.util.UUID;
 
 public interface PacienteGateway {
 

@@ -1,11 +1,7 @@
 package br.com.chronus.pessoas.application.usecase.contatoAnjo.exception;
 
 import br.com.chronus.pessoas.application.usecase.exception.BusinessException;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
 import lombok.Getter;
-
-import java.util.UUID;
 
 import static java.lang.String.format;
 

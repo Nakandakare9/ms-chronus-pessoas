@@ -1,7 +1,7 @@
 package br.com.chronus.pessoas.infrastructure.persistence.repository;
 
-import br.com.chronus.pessoas.infrastructure.persistence.entity.ProfissionalSaudeEntity;
 import br.com.chronus.pessoas.application.enums.EnumEspecialidadeProfissionalSaude;
+import br.com.chronus.pessoas.infrastructure.persistence.entity.ProfissionalSaudeEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

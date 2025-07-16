@@ -9,7 +9,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.List;
-import java.util.UUID;
 
 @Getter
 @Setter
@@ -17,7 +16,7 @@ public class UpdateContatoAnjoRequest {
 
     @NotBlank(message = "Name is required")
     @Size(max = 100, message = "Name length must be less than 100 characters")
-    @Pattern(regexp = "[a-zA-Z\\s]+", message = "Name must contain only letters and spaces")
+    @Pattern(regexp = "^[\\p{L} .'-]+$", message = "Name must contain only letters, spaces, dots, apostrophes or hyphens")
     private String nomeContatoAnjo;
 
     @NotBlank(message = "Email is required")

@@ -2,8 +2,6 @@ package br.com.chronus.pessoas.application.usecase.paciente.exception;
 
 import br.com.chronus.pessoas.application.usecase.exception.BusinessException;
 
-import java.util.UUID;
-
 import static java.lang.String.format;
 
 public class PacienteNaoEncontradoException extends BusinessException {

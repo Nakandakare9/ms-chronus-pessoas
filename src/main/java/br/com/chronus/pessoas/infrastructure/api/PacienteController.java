@@ -9,14 +9,13 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("chronus/pacientes")
 @RequiredArgsConstructor
 public class PacienteController {
 
-    private final PacienteGateway pacienteGateway;;
+    private final PacienteGateway pacienteGateway;
 
     @PostMapping
     public ResponseEntity<Paciente> createPaciente(@Validated @RequestBody Paciente paciente) {

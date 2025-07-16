@@ -3,6 +3,7 @@ package br.com.chronus.pessoas.infrastructure.persistence.entity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
+
 import java.time.LocalDate;
 import java.util.List;
 

@@ -8,7 +8,6 @@ import org.hibernate.validator.constraints.br.CPF;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.UUID;
 
 @Getter
 @Setter
@@ -20,7 +19,7 @@ public class Paciente {
     private Integer idPaciente;
 
     @Size(max = 100, message = "Name length must be less than 100 characters")
-    @Pattern(regexp = "[a-zA-Z\\s]+", message = "Name must contain only letters and spaces")
+    @Pattern(regexp = "^[\\p{L} .'-]+$", message = "Name must contain only letters, spaces, dots, apostrophes or hyphens")
     private String nomePaciente;
 
     @Size(max = 100, message = "Email length must be less than 100 characters")

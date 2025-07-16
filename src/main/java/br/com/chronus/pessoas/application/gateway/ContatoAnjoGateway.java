@@ -4,7 +4,6 @@ import br.com.chronus.pessoas.application.domain.ContatoAnjo;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 public interface ContatoAnjoGateway {
 
